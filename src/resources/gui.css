@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-Regular.ttf'); /* IE9 Compat Modes */
+
+}
+
+.body, .button,.input,.label{
+    -fx-font-family: 'Roboto';
+    
+}
+.h1{
+    -fx-font-size: 30px;
+    -fx-font-weight:bold;
+}
+
+.h3{
+    -fx-font-size: 20px;
+    -fx-font-weight:bold;
+}
+.btn-querellante{
+    -fx-background-color: #00bd6c;
+    
+}
+.btn-empleado{
+    -fx-background-color: #03a9f4;
+}
+.gtext{
+    -fx-font-size: 16px;
+    
+}
+.btn-querellante:hover{
+    -fx-background-color: #4FCE98;
+}
+.btn-empleado:hover{
+    -fx-background-color: #40B9EE;
+}
+
+.input{
+    -fx-cursor: text;
+    -fx-highlight-text-fill: #fff;
+    -fx-text-fill: #fff;
+    -fx-prompt-text-fill: #fff;
+}
+.btn-registro{
+    -fx-background-color:  #FFB700;
+}
+.btn-registro:hover{
+    -fx-background-color:  #FFD364;
+}

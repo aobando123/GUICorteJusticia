@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="750.0" stylesheets="@../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guicortejusticia.LoginEmpleadoController">
+   <children>
+      <Pane id="password" prefHeight="550.0" prefWidth="458.0" style="-fx-background-color: #03a9f4;">
+         <children>
+            <Label layoutX="211.0" layoutY="95.0" styleClass="h1" text="Login" textFill="WHITE" />
+            <JFXTextField id="username" focusColor="#5b5b5b" labelFloat="true" layoutX="141.0" layoutY="196.0" prefHeight="38.0" prefWidth="261.0" promptText="Nombre de usuario" styleClass="input" unFocusColor="WHITE" />
+            <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT" layoutX="77.0" layoutY="230.0" size="50.0" />
+            <MaterialDesignIconView fill="WHITE" glyphName="LOCK" layoutX="79.0" layoutY="307.0" size="50" />
+            <JFXCheckBox id="remember" checkedColor="#00bd6c" layoutX="310.0" layoutY="335.0" style="-fx-font-size: 14; -fx-font-family: Roboto;" text="Recuerdame" textFill="#fcfcfc" unCheckedColor="#f5f5f5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXCheckBox>
+            <JFXButton layoutX="166.0" layoutY="382.0" prefHeight="45.0" prefWidth="126.0" text="Iniciar Sesión" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="gtext" />
+                  <String fx:value="btn-registro" />
+               </styleClass>
+            </JFXButton>
+            <Label layoutX="173.0" layoutY="449.0" style="-fx-underline: true; -fx-font-size: 14; -fx-font-family: Roboto;" text="Olvidé contraseña" textFill="#fcfcfc">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <JFXTextField focusColor="#5b5b5b" labelFloat="true" layoutX="141.0" layoutY="265.0" prefHeight="38.0" prefWidth="261.0" promptText="Contraseña" styleClass="input" unFocusColor="WHITE" />
+            <MaterialDesignIconView fill="WHITE" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="14.0" layoutY="60.0" onMouseClicked="#regresar" size="50">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MaterialDesignIconView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="550.0" fitWidth="329.0" layoutX="458.0" pickOnBounds="true">
+         <image>
+            <Image url="@../resources/justicia.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
