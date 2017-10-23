@@ -9,10 +9,12 @@
 
 <AnchorPane id="StartPane" fx:id="StartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" styleClass="body" stylesheets="@../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guicortejusticia.StartMenuController">
     <children>
-      <Pane layoutX="-3.0" prefHeight="165.0" prefWidth="758.0" style="-fx-background-color: #FFB700;" />
-        <Label fx:id="label" layoutX="160.0" layoutY="57.0" minHeight="16" minWidth="69" styleClass="h1" text="Bienvenido a la corte de Justicia" />
-      <Label layoutX="292.0" layoutY="124.0" styleClass="h3" text="¿Qué desea hacer?" />
-      <Pane layoutX="482.0" layoutY="253.0" onMouseClicked="#goToLoginEmp" prefHeight="200.0" prefWidth="200.0" styleClass="btn-empleado">
+      <Pane layoutX="-3.0" prefHeight="165.0" prefWidth="758.0" style="-fx-background-color: #FFB700;">
+         <children>
+              <Label fx:id="label" layoutX="137.0" layoutY="66.0" minHeight="16" minWidth="69" styleClass="h1" text="BIENVENIDO A LA CORTE DE JUSTICIA" textFill="WHITE" />
+            <Label layoutX="298.0" layoutY="103.0" styleClass="h3" text="¿Qué desea hacer?" textFill="WHITE" />
+         </children></Pane>
+      <Pane layoutX="461.0" layoutY="254.0" onMouseClicked="#goToLoginEmp" prefHeight="200.0" prefWidth="200.0" styleClass="btn-empleado">
          <children>
             <Label layoutX="51.0" layoutY="142.0" onMouseClicked="#goToLoginEmp" styleClass="gtext" text="Trabajo aqui" textAlignment="CENTER" textFill="WHITE" />
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT" layoutX="50.0" layoutY="125.0" onMouseClicked="#goToLoginEmp" size="100.0" strokeType="OUTSIDE" textAlignment="CENTER">
@@ -25,9 +27,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane layoutX="73.0" layoutY="253.0" onMouseClicked="#goToLogQuere" prefHeight="200.0" prefWidth="200.0" styleClass="btn-querellante">
+      <Pane layoutX="95.0" layoutY="253.0" onMouseClicked="#goToLogQuere" prefHeight="200.0" prefWidth="200.0" styleClass="btn-querellante">
          <children>
-            <Label layoutX="18.0" layoutY="155.0" prefHeight="23.0" prefWidth="168.0" styleClass="gtext" text="Quiero hacer un caso" textAlignment="CENTER" textFill="WHITE" />
+            <Label layoutX="21.0" layoutY="146.0" prefHeight="23.0" prefWidth="168.0" styleClass="gtext" text="Quiero hacer un caso" textAlignment="CENTER" textFill="WHITE" />
             <MaterialDesignIconView fill="WHITE" glyphName="FILE_FIND" layoutX="50.0" layoutY="125.0" size="100.0" strokeType="OUTSIDE" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -38,7 +40,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Label layoutX="366.0" layoutY="334.0" styleClass="h1" text="Ó" />
     </children>
    <effect>
       <InnerShadow choke="0.08" radius="10.7425" width="23.97" />

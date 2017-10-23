@@ -25,12 +25,15 @@ public class FormValidation {
         String errorMsgs = "";
         int i = 0;
         Color error = Color.web("#F44436");
+        Color normal = Color.web("#4d4d4d");
 
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
 
             errorMsgs = "Campo Requerido";
+        } else {
+            input.setUnFocusColor(normal);
         }
         return errorMsgs;
     }
@@ -39,19 +42,26 @@ public class FormValidation {
         String errorMsgs = "";
         int i = 0;
         Color error = Color.web("#F44436");
+        Color normal = Color.web("#4d4d4d");
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
 
             errorMsgs = "Campo Requerido";
+        } else {
+            input.setUnFocusColor(normal);
         }
         return errorMsgs;
     }
 
     private String validNumber(JFXTextField numb) {
+        Color error = Color.web("#F44436");
+        Color normal = Color.web("#4d4d4d");
         try {
             int textNumber = Integer.parseInt(numb.getText());
+            numb.setUnFocusColor(normal);
         } catch (NumberFormatException e) {
+            numb.setUnFocusColor(error);
             return "Solamente numeros";
         }
         return "";
@@ -74,19 +84,26 @@ public class FormValidation {
             if (!error.equals("")) {
                 labels[i].setText(error);
             } else {
+
+                labels[i].setText("");
+                //Verificar campos numeros
                 for (int numField : numFields) {
                     if (numField == i) {
                         error = validNumber(arrayFields[i]);
                         if (!error.equals("")) {
                             labels[i].setText(error);
                         }
+
                     }
                 }
+                //Fin del Verificar campos numeros
             }
         }
         error = validTextArea(ta);
         if (!error.equals("")) {
-            labels[labels.length-1].setText(error);
+            labels[labels.length - 1].setText(error);
+        }else{
+             labels[labels.length - 1].setText("");
         }
 
     }
