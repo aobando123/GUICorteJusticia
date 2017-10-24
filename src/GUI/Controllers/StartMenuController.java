@@ -40,7 +40,7 @@ public class StartMenuController implements Initializable {
     private void goToLoginEmp(MouseEvent event) throws IOException{
         Parent loginEmpView;
         
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("LoginEmpleado.fxml"));
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/LoginEmpleado.fxml"));
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -52,7 +52,7 @@ public class StartMenuController implements Initializable {
     private void goToLogQuere(MouseEvent event) throws IOException{
         Parent loginEmpView;
        
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("LoginQuerellante.fxml"));
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/LoginQuerellante.fxml"));
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -64,7 +64,7 @@ public class StartMenuController implements Initializable {
     private void regresar(MouseEvent mEvent) throws IOException{
       Parent loginEmpView;
        
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("StartMenu.fxml"));
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/StartMenu.fxml"));
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();

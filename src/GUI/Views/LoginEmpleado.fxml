@@ -48,7 +48,7 @@
       </Pane>
       <ImageView fitHeight="550.0" fitWidth="329.0" layoutX="458.0" pickOnBounds="true">
          <image>
-            <Image url="@../resources/justicia.jpg" />
+            <Image url="@../../resources/justicia.jpg" />
          </image>
       </ImageView>
    </children>

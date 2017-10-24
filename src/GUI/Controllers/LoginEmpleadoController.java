@@ -37,7 +37,7 @@ public class LoginEmpleadoController implements Initializable {
     private void regresar(MouseEvent mEvent) throws IOException{
       Parent loginEmpView;
        
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("StartMenu.fxml"));
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/StartMenu.fxml"));
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();

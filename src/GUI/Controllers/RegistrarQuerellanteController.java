@@ -71,7 +71,7 @@ public class RegistrarQuerellanteController implements Initializable {
     private void regresar(MouseEvent mEvent) throws IOException {
         Parent loginEmpView;
 
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("LoginQuerellante.fxml"));
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/LoginQuerellante.fxml"));
         Scene logScene = new Scene(loginEmpView);
 
         Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
