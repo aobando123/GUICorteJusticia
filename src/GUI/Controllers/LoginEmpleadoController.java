@@ -5,6 +5,8 @@
  */
 package GUI.Controllers;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +27,12 @@ import javafx.stage.Stage;
  */
 public class LoginEmpleadoController implements Initializable {
 
+    @FXML
+    private JFXPasswordField contra;
+    @FXML
+    private JFXTextField nombre;
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -44,6 +52,11 @@ public class LoginEmpleadoController implements Initializable {
         curStage.setScene(logScene);
         
         curStage.show();
+    }
+    
+    @FXML
+    private void hola(MouseEvent mEvent)throws IOException{
+        System.out.println("hola");
     }
     
 }

@@ -19,7 +19,7 @@ public class GUICorteJusticia extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Views/registrarQuerellante.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/LoginEmpleado.fxml"));
         
         Scene scene = new Scene(root);
         
