@@ -56,10 +56,10 @@
             <String fx:value="gtext" />
          </styleClass>
       </JFXTextArea>
-      <Label fx:id="labelNombre" layoutX="96.0" layoutY="207.0" textFill="#f50000" />
-      <Label fx:id="labelTelefono" layoutX="102.0" layoutY="307.0" textFill="#f50000" />
-      <Label fx:id="labelApellido" layoutX="414.0" layoutY="207.0" textFill="#f50000" />
-      <Label fx:id="labelCedula" layoutX="411.0" layoutY="299.0" textFill="#f50000" />
-      <Label fx:id="labelDireccion" layoutX="277.0" layoutY="431.0" textFill="#f50000" />
+      <Label fx:id="labelNombre" layoutX="216.0" layoutY="247.0" textFill="#f50000" />
+      <Label fx:id="labelTelefono" layoutX="216.0" layoutY="383.0" textFill="#f50000" />
+      <Label fx:id="labelApellido" layoutX="718.0" layoutY="247.0" textFill="#f50000" />
+      <Label fx:id="labelCedula" layoutX="718.0" layoutY="376.0" textFill="#f50000" />
+      <Label fx:id="labelDireccion" layoutX="422.0" layoutY="595.0" textFill="#f50000" />
    </children>
 </AnchorPane>

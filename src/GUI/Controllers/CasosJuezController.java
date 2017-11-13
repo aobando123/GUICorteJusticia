@@ -5,8 +5,10 @@
  */
 package GUI.Controllers;
 
+import com.jfoenix.controls.JFXTreeTableView;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -19,9 +21,12 @@ public class CasosJuezController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+     @FXML
+    private JFXTreeTableView<?> tableCasos;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }

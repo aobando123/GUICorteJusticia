@@ -7,9 +7,7 @@ package formValidaton;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 /**
@@ -17,6 +15,8 @@ import javafx.scene.paint.Color;
  * @author mean
  */
 public class FormValidation {
+        final Color error = Color.web("#F44436");
+        final Color normal = Color.web("#4d4d4d");
 
     public FormValidation() {
     }
@@ -24,8 +24,7 @@ public class FormValidation {
     private String validTextField(JFXTextField input) {
         String errorMsgs = "";
         int i = 0;
-        Color error = Color.web("#F44436");
-        Color normal = Color.web("#4d4d4d");
+
 
         if (input.getText().equals("")) {
 
@@ -41,8 +40,7 @@ public class FormValidation {
     private String validTextArea(JFXTextArea input) {
         String errorMsgs = "";
         int i = 0;
-        Color error = Color.web("#F44436");
-        Color normal = Color.web("#4d4d4d");
+
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
@@ -55,8 +53,7 @@ public class FormValidation {
     }
 
     private String validNumber(JFXTextField numb) {
-        Color error = Color.web("#F44436");
-        Color normal = Color.web("#4d4d4d");
+ 
         try {
             int textNumber = Integer.parseInt(numb.getText());
             numb.setUnFocusColor(normal);

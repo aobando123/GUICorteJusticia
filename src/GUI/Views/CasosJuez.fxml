@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.Controllers.CasosJuezController">
-    
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CasosJuezController">
+   <children>
+      <JFXTreeTableView fx:id="tableCasos" layoutX="189.0" layoutY="128.0" />
+   </children>
 </AnchorPane>
