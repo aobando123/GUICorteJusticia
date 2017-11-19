@@ -48,11 +48,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MaterialDesignIconView>
-            <JFXPasswordField fx:id="contra" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="352.0" prefHeight="38.0" prefWidth="378.0" promptText="Contraseña" unFocusColor="WHITE">
-               <styleClass>
-                  <String fx:value="input" />
-                  <String fx:value="h3" />
-               </styleClass></JFXPasswordField>
+            <JFXPasswordField fx:id="contra" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="352.0" prefHeight="38.0" prefWidth="378.0" promptText="Contraseña" styleClass="h3" unFocusColor="#ffffff00" />
          </children>
       </Pane>
       <ImageView fitHeight="780.0" fitWidth="458.0" layoutX="742.0" pickOnBounds="true">

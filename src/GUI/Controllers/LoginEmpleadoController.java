@@ -5,11 +5,14 @@
  */
 package GUI.Controllers;
 
+import Logic.GestorLogin;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -59,4 +62,16 @@ public class LoginEmpleadoController implements Initializable {
         System.out.println("hola");
     }
     
+    @FXML
+    private void iniciarSesion(MouseEvent mEvent)
+    {
+        GestorLogin gl = new GestorLogin();
+        String nombreUsuario = nombre.getText();
+        String password = contra.getText();
+        try {
+            boolean allow = gl.InicioSesion(nombreUsuario, password);
+        } catch (Exception ex) {
+            Logger.getLogger(LoginEmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 }
