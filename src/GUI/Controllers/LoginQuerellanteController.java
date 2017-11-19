@@ -5,6 +5,8 @@
  */
 package GUI.Controllers;
 
+import Logic.GestorLogin;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -29,6 +32,15 @@ public class LoginQuerellanteController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private JFXTextField cedulaQ;
+     
+     
+    @FXML
+    private Label loginError;
+    
+    private GestorLogin gl =  new GestorLogin();
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -60,6 +72,14 @@ public class LoginQuerellanteController implements Initializable {
     }
     @FXML
     private void validate(){
+        
+    }
+    
+    @FXML
+    private void iniciarSesion()
+    {
+        String cedulaUser = cedulaQ.getText();
+        boolean allowAcces = gl.InicioSesion(cedulaUser, null);
         
     }
 }

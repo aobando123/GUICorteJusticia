@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" style="-fx-background-color: #00bd6c;" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.LoginQuerellanteController">
    <children>
       <Label layoutX="365.0" layoutY="114.0" styleClass="h1" text="Digite su cedula para empezar la querella" textFill="WHITE" />
-      <JFXTextField focusColor="#797979" labelFloat="true" layoutX="375.0" layoutY="243.0" prefHeight="56.0" prefWidth="508.0" promptText="Cedula" style="-fx-font-size: 20;" styleClass="input" unFocusColor="WHITE" />
+      <JFXTextField fx:id="cedulaQ" focusColor="#797979" labelFloat="true" layoutX="375.0" layoutY="243.0" prefHeight="56.0" prefWidth="508.0" promptText="Cedula" style="-fx-font-size: 20;" styleClass="input" unFocusColor="WHITE" />
       <JFXButton layoutX="539.0" layoutY="611.0" onAction="#goToRegistro" prefHeight="64.0" prefWidth="145.0" text="Registrarse" textFill="WHITE">
          <styleClass>
             <String fx:value="btn-registro" />
@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MaterialDesignIconView>
-      <JFXButton layoutX="559.0" layoutY="371.0" prefHeight="50.0" prefWidth="104.0" text="Entrar" textFill="#f8f1f1">
+      <JFXButton fx:id="loginQue" layoutX="559.0" layoutY="371.0" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="104.0" text="Entrar" textFill="#f8f1f1">
          <styleClass>
             <String fx:value="btn-registro" />
             <String fx:value="h3" />
@@ -37,5 +37,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Label fx:id="loginError" layoutX="392.0" layoutY="319.0" textFill="RED" />
    </children>
 </AnchorPane>
