@@ -8,6 +8,7 @@ package GUI.Controllers;
 import Logic.GestorLogin;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import formValidaton.FormValidation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -35,7 +37,14 @@ public class LoginEmpleadoController implements Initializable {
     @FXML
     private JFXTextField nombre;
     
+    @FXML
+    private Label userNameError;
     
+    @FXML
+    private Label errorContra;
+    
+    GestorLogin gl = new GestorLogin();
+
     /**
      * Initializes the controller class.
      */
@@ -65,13 +74,40 @@ public class LoginEmpleadoController implements Initializable {
     @FXML
     private void iniciarSesion(MouseEvent mEvent)
     {
-        GestorLogin gl = new GestorLogin();
         String nombreUsuario = nombre.getText();
         String password = contra.getText();
+        FormValidation fv = new FormValidation();
         try {
-            boolean allow = gl.InicioSesion(nombreUsuario, password);
+            String resultNombre = fv.validTextField(nombre);
+            String resultPassword = fv.validTextField(contra);
+            if(!resultNombre.isEmpty() || !resultPassword.isEmpty())
+            {
+                userNameError.setText(resultNombre);
+                errorContra.setText(resultPassword);
+            }
+            else
+            {
+                boolean allow = gl.InicioSesion(nombreUsuario, password);
+                if(!allow)
+                    errorContra.setText("¡Error!, Usuario o contraseña incorrectos");
+                else
+                    goToCasos(mEvent);
+            }        
         } catch (Exception ex) {
             Logger.getLogger(LoginEmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+    
+    @FXML    
+    private void goToCasos(MouseEvent mEvent) throws IOException{
+        Parent loginEmpView;
+        String fileName = "Casos"+ gl.getUserType() + ".fxml";
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/"+ fileName));
+        Scene logScene = new Scene(loginEmpView);
+        
+        Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
+        curStage.setScene(logScene);
+        
+        curStage.show();
     }
 }

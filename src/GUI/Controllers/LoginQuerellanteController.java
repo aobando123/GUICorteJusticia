@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import formValidaton.FormValidation;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,7 +78,7 @@ public class LoginQuerellanteController implements Initializable {
     }
     
     @FXML
-    private void iniciarSesion(ActionEvent mEvent) throws IOException
+    private void iniciarSesion(ActionEvent mEvent) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException
     {
         String cedulaUser = cedulaQ.getText();
         FormValidation validation = new FormValidation();

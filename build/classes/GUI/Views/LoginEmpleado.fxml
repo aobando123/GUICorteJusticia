@@ -18,7 +18,7 @@
       <Pane id="password" prefHeight="780.0" prefWidth="743.0" style="-fx-background-color: #03a9f4;">
          <children>
             <Label layoutX="347.0" layoutY="133.0" styleClass="h1" text="Login" textFill="WHITE" />
-            <JFXTextField id="username" fx:id="user" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="236.0" prefHeight="38.0" prefWidth="378.0" promptText="Nombre de usuario" unFocusColor="WHITE">
+            <JFXTextField id="username" fx:id="nombre" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="236.0" prefHeight="38.0" prefWidth="378.0" promptText="Nombre de usuario" unFocusColor="WHITE">
                <styleClass>
                   <String fx:value="input" />
                   <String fx:value="h3" />
@@ -29,7 +29,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></JFXCheckBox>
-            <JFXButton layoutX="292.0" layoutY="560.0" onMouseClicked="#hola" prefHeight="60.0" prefWidth="201.0" text="Iniciar Sesión" textFill="WHITE">
+            <JFXButton layoutX="292.0" layoutY="560.0" onMouseClicked="#iniciarSesion" prefHeight="60.0" prefWidth="201.0" text="Iniciar Sesión" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -48,11 +48,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MaterialDesignIconView>
-            <JFXPasswordField fx:id="contra" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="352.0" prefHeight="38.0" prefWidth="378.0" promptText="Contraseña" unFocusColor="WHITE">
-               <styleClass>
-                  <String fx:value="input" />
-                  <String fx:value="h3" />
-               </styleClass></JFXPasswordField>
+            <JFXPasswordField fx:id="contra" focusColor="#5b5b5b" labelFloat="true" layoutX="228.0" layoutY="352.0" prefHeight="38.0" prefWidth="378.0" promptText="Contraseña" styleClass="h3" unFocusColor="#ffffff00" />
+            <Label fx:id="userNameError" layoutX="228.0" layoutY="296.0" textFill="RED" />
+            <Label fx:id="errorContra" layoutX="227.0" layoutY="409.0" textFill="RED" />
          </children>
       </Pane>
       <ImageView fitHeight="780.0" fitWidth="458.0" layoutX="742.0" pickOnBounds="true">

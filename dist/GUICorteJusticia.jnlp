@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GUICorteJusticia.jar" size="2940530" download="eager" />
-    <jar href="lib\CorteJusticiaGestores.jar" size="5644" download="eager" />
-    <jar href="lib\CorteJusticiaObjects.jar" size="16456" download="eager" />
+    <jar href="GUICorteJusticia.jar" size="2949180" download="eager" />
+    <jar href="lib\CorteJusticiaGestores.jar" size="8646" download="eager" />
+    <jar href="lib\CorteJusticiaObjects.jar" size="17315" download="eager" />
     <jar href="lib\commons-io-2.6.jar" size="214788" download="eager" />
-    <jar href="lib\conexion.jar" size="247916" download="eager" />
+    <jar href="lib\conexion.jar" size="250923" download="eager" />
     <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\jfoenix.jar" size="2386535" download="eager" />
     <jar href="lib\json-simple.jar" size="17628" download="eager" />

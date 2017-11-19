@@ -5,6 +5,7 @@
  */
 package formValidaton;
 
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.Label;
@@ -24,8 +25,22 @@ public class FormValidation {
     public String validTextField(JFXTextField input) {
         String errorMsgs = "";
         int i = 0;
+        
+        if (input.getText().equals("")) {
 
+            input.setUnFocusColor(error);
 
+            errorMsgs = "Campo Requerido";
+        } else {
+            input.setUnFocusColor(normal);
+        }
+        return errorMsgs;
+    }
+    
+      public String validTextField(JFXPasswordField input) {
+        String errorMsgs = "";
+        int i = 0;
+        
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
