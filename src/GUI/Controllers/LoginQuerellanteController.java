@@ -7,6 +7,7 @@ package GUI.Controllers;
 
 import Logic.GestorLogin;
 import com.jfoenix.controls.JFXTextField;
+import formValidaton.FormValidation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,10 +77,36 @@ public class LoginQuerellanteController implements Initializable {
     }
     
     @FXML
-    private void iniciarSesion()
+    private void iniciarSesion(ActionEvent mEvent) throws IOException
     {
         String cedulaUser = cedulaQ.getText();
-        boolean allowAcces = gl.InicioSesion(cedulaUser, null);
+        FormValidation validation = new FormValidation();
+        String message = validation.validTextField(cedulaQ);
+        if(message.isEmpty())
+        {
+            boolean allowAcces = gl.InicioSesion(cedulaUser, null);
+            if(!allowAcces)
+                loginError.setText("¡Error!, La cédula no está registrada");
+            else
+                goToCasos(mEvent);
+        }
+        else
+        {
+            loginError.setText(message);
+        }
         
+    }
+    
+        @FXML    
+    private void goToCasos(ActionEvent mEvent) throws IOException{
+      Parent loginEmpView;
+       
+        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
+        Scene logScene = new Scene(loginEmpView);
+        
+        Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
+        curStage.setScene(logScene);
+        
+        curStage.show();
     }
 }

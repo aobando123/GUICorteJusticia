@@ -21,7 +21,7 @@ public class FormValidation {
     public FormValidation() {
     }
 
-    private String validTextField(JFXTextField input) {
+    public String validTextField(JFXTextField input) {
         String errorMsgs = "";
         int i = 0;
 
