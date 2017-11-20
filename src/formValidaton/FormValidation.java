@@ -87,14 +87,16 @@ public class FormValidation {
 
     }
 
-    public void validateForm(JFXTextField[] arrayFields, int[] numFields, JFXTextArea ta, Label[] labels) {
+    public boolean validateForm(JFXTextField[] arrayFields, int[] numFields, JFXTextArea ta, Label[] labels) {
         String error;
+        boolean valid = true;
 
         for (int i = 0; i < arrayFields.length; i++) {
 
             error = validTextField(arrayFields[i]);
             if (!error.equals("")) {
                 labels[i].setText(error);
+                valid = false;
             } else {
 
                 labels[i].setText("");
@@ -104,6 +106,7 @@ public class FormValidation {
                         error = validNumber(arrayFields[i]);
                         if (!error.equals("")) {
                             labels[i].setText(error);
+                            valid = false;
                         }
 
                     }
@@ -114,9 +117,11 @@ public class FormValidation {
         error = validTextArea(ta);
         if (!error.equals("")) {
             labels[labels.length - 1].setText(error);
+            valid = false;
         }else{
              labels[labels.length - 1].setText("");
         }
+        return valid;
 
     }
 

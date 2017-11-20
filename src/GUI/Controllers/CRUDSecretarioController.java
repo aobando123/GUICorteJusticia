@@ -16,6 +16,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
@@ -64,7 +67,14 @@ public class CRUDSecretarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        JFXTreeTableColumn<Secretario, String> colCedula = new JFXTreeTableColumn<>("Cedula");
+       initTable();
+
+    }
+    
+    private void initTable(){
+        
+                
+     JFXTreeTableColumn<Secretario, String> colCedula = new JFXTreeTableColumn<>("Cedula");
         colCedula.setPrefWidth(150);
         colCedula.setCellValueFactory((TreeTableColumn.CellDataFeatures<Secretario, String> param) -> param.getValue().getValue().cedula);
         JFXTreeTableColumn<Secretario, String> colNombre = new JFXTreeTableColumn<>("Nombre");
@@ -90,10 +100,10 @@ public class CRUDSecretarioController implements Initializable {
         tblSecretario.getColumns().setAll(colCedula, colNombre, colApellido, colTele, colDir, colUsuario, colEdit);
         tblSecretario.setRoot(root);
         tblSecretario.setShowRoot(false);
-
     }
 
     private void fillList() {
+        secres  = FXCollections.observableArrayList();
 
         try {
             ArrayList<String[]> list = gS.getSecretarios();
@@ -106,6 +116,27 @@ public class CRUDSecretarioController implements Initializable {
         }
 
     }
+    //@FXML
+//    private void crearSecretario(MouseEvent event) throws IOException{
+//    Parent loginEmpView;
+//
+//        try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSecretario.fxml"));
+//                loginEmpView = (AnchorPane) loader.load();
+//                Scene logScene = new Scene(loginEmpView);
+//
+//                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                curStage.setScene(logScene);
+//
+//                EditSecretarioController controller = loader.<EditSecretarioController>getController();
+//                controller.setCreate();
+//                curStage.show();
+//
+//            } catch (IOException ex) {
+//                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//    }
 
     private JFXButton setEditButton() {
         JFXButton btn = new JFXButton("Editar");
@@ -115,42 +146,62 @@ public class CRUDSecretarioController implements Initializable {
         btn.setOnMouseClicked((MouseEvent event) -> {
             int id = Integer.parseInt(btn.getId());
 
-           Parent loginEmpView = null;
-FXMLLoader loader = null;
-            try {
-                  loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSecretario.fxml"));
+            Parent loginEmpView = null;
 
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSecretario.fxml"));
                 loginEmpView = (AnchorPane) loader.load();
+                Scene logScene = new Scene(loginEmpView);
+
+                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                curStage.setScene(logScene);
+
                 EditSecretarioController controller = loader.<EditSecretarioController>getController();
-                controller.setId(id);
-                controller.setForm();
+                controller.setUpdate(id);
+                curStage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-        Scene logScene = new Scene(loginEmpView);
 
-        Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        curStage.setScene(logScene);
-        EditSecretarioController controller = loader.<EditSecretarioController>getController();
-                controller.setId(id);
-                controller.setForm();
-
-        curStage.show();
         });
         return btn;
     }
 
     private JFXButton setDeleteButton() {
         JFXButton btn = new JFXButton("Eliminar");
+        
         btn.getStyleClass().add("btn-delete");
         btn.setPrefSize(90, 40);
         btn.setOnMouseClicked((event) -> {
-            String id = btn.getId();
-            System.out.print("Borrare " + id);
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Eliminar Secretario");
+            alerta.setHeaderText("¿Está seguro de eliminar este secretario?");
+            ButtonType yesBtn = new ButtonType("Si");
+            
+            alerta.getButtonTypes().setAll(yesBtn,ButtonType.NO);
+            
+            Optional<ButtonType> result = alerta.showAndWait();
+            if (result.get() == yesBtn){
+                deleteRow(Integer.parseInt(btn.getId()));
+            }
         });
         return btn;
+    }
+    
+    private void deleteRow(int i){
+        //try {
+          //  gS.delete(i);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Se elimino secretario");
+            alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
+            alerta.showAndWait();
+            initTable();
+       /* } catch (SQLException ex) {
+            Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
 
     private class Secretario extends RecursiveTreeObject<Secretario> {
