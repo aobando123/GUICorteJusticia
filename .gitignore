@@ -1,0 +1,14 @@
+
+nbproject/project.properties
+nbproject/private/private.xml
+nbproject/private/private.properties
+dist/lib/CorteJusticiaObjects.jar
+dist/lib/CorteJusticiaGestores.jar
+dist/lib/conexion.jar
+dist/GUICorteJusticia.jar
+dist/GUICorteJusticia.html
+build/built-jar.properties
+build/classes/formValidaton/FormValidation.class
+build/classes/GUI/Controllers/CRUDSecretarioController$Secretario.class
+build/classes/GUI/Controllers/CRUDSecretarioController.class
+build/classes/GUI/Controllers/EditSecretarioController.class
