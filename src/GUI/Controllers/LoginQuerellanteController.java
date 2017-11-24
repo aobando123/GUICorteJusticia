@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,15 +64,24 @@ public class LoginQuerellanteController implements Initializable {
     
     @FXML    
     private void goToRegistro(ActionEvent mEvent) throws IOException{
-      Parent loginEmpView;
-       
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/registrarQuerellante.fxml"));
-        Scene logScene = new Scene(loginEmpView);
-        
-        Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
-        curStage.setScene(logScene);
-        
-        curStage.show();
+     Parent loginEmpView;
+
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/registrarQuerellante.fxml"));
+                loginEmpView = (AnchorPane) loader.load();
+                Scene logScene = new Scene(loginEmpView);
+
+                Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
+                curStage.setScene(logScene);
+
+                RegistrarQuerellanteController controller = loader.<RegistrarQuerellanteController>getController();
+                controller.setCreate();
+                controller.setFXML("LoginQuerellante");
+                curStage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     @FXML
     private void validate(){

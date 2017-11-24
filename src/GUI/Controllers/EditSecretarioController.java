@@ -37,6 +37,9 @@ public class EditSecretarioController implements Initializable {
     /**
      * Initializes the controller class.
      */
+        @FXML
+    private Label title;
+        
     private int idSecretario;
     @FXML
     private JFXTextField nombre;
@@ -74,6 +77,8 @@ public class EditSecretarioController implements Initializable {
 
     @FXML
     private Label nombreUsu;
+    
+    
 
     private GestorSecretario gs = new GestorSecretario();
 
@@ -163,7 +168,7 @@ public class EditSecretarioController implements Initializable {
             secretario[5] = NUsuario.getText();
 
             try {
-                gs.update(secretario);
+                gs.create(secretario);
             } catch (SQLException | IOException ex) {
 
             } finally {

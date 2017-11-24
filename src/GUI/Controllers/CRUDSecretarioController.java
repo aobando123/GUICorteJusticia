@@ -116,27 +116,27 @@ public class CRUDSecretarioController implements Initializable {
         }
 
     }
-    //@FXML
-//    private void crearSecretario(MouseEvent event) throws IOException{
-//    Parent loginEmpView;
-//
-//        try {
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSecretario.fxml"));
-//                loginEmpView = (AnchorPane) loader.load();
-//                Scene logScene = new Scene(loginEmpView);
-//
-//                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                curStage.setScene(logScene);
-//
-//                EditSecretarioController controller = loader.<EditSecretarioController>getController();
-//                controller.setCreate();
-//                curStage.show();
-//
-//            } catch (IOException ex) {
-//                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//    }
+@FXML
+    private void crearSecretario(MouseEvent event) throws IOException{
+    Parent loginEmpView;
+
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSecretario.fxml"));
+                loginEmpView = (AnchorPane) loader.load();
+                Scene logScene = new Scene(loginEmpView);
+
+                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                curStage.setScene(logScene);
+
+                EditSecretarioController controller = loader.<EditSecretarioController>getController();
+                controller.setCreate();
+                curStage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }
 
     private JFXButton setEditButton() {
         JFXButton btn = new JFXButton("Editar");
