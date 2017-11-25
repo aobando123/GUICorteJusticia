@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Controllers/EditSecretarioController.java</file>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Controllers/CRUDQuerellanteController.java</file>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Controllers/CRUDSecretarioController.java</file>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Views/CRUDQuerellante.fxml</file>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Controllers/RegistrarQuerellanteController.java</file>
+            <file>file:/C:/Users/mean/Documents/NetBeansProjects/GUICorteJusticia/src/GUI/Controllers/LoginQuerellanteController.java</file>
+        </group>
+    </open-files>
 </project-private>

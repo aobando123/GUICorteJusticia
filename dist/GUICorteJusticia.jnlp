@@ -8,15 +8,14 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GUICorteJusticia.jar" size="2949180" download="eager" />
-    <jar href="lib\CorteJusticiaGestores.jar" size="8646" download="eager" />
-    <jar href="lib\CorteJusticiaObjects.jar" size="17315" download="eager" />
+    <jar href="GUICorteJusticia.jar" size="2964852" download="eager" />
+    <jar href="lib\CorteJusticiaGestores.jar" size="14891" download="eager" />
+    <jar href="lib\CorteJusticiaObjects.jar" size="18865" download="eager" />
     <jar href="lib\commons-io-2.6.jar" size="214788" download="eager" />
-    <jar href="lib\conexion.jar" size="250923" download="eager" />
+    <jar href="lib\conexion.jar" size="257359" download="eager" />
     <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\jfoenix.jar" size="2386535" download="eager" />
     <jar href="lib\json-simple.jar" size="17628" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.44-bin.jar" size="999635" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GUICorteJusticia" >

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" stylesheets="@../../resources/gui.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.Controllers.CRUDQuerellanteController">
+   <children>
+      <JFXTreeTableView fx:id="tblQuerellante" layoutX="65.0" layoutY="200.0" styleClass="gtext" />
+      <MaterialDesignIconView fill="#12da12" glyphName="PLUS_CIRCLE" layoutX="1100.0" layoutY="168.0" onMouseClicked="#crearQuerellante" size="50.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MaterialDesignIconView>
+      <Label layoutX="514.0" layoutY="76.0" styleClass="h1" stylesheets="@../resources/gui.css" text="QUERELLANTES" />
+   </children>
+</AnchorPane>
