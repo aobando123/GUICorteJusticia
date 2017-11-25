@@ -113,12 +113,17 @@ public class LoginQuerellanteController implements Initializable {
     private void goToCasos(ActionEvent mEvent) throws IOException{
       Parent loginEmpView;
        
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
+        loginEmpView = (AnchorPane) loader.load();
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
         curStage.setScene(logScene);
         
+        CasosQuerellanteController controller = loader.<CasosQuerellanteController>getController();
+                controller.mostrarCasos(gl.getCurrentUser().getIdPersona());
+                controller.setFXML("LoginQuerellante");
+                
         curStage.show();
     }
 }

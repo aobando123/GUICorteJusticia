@@ -83,9 +83,7 @@ public class CRUDQuerellanteController implements Initializable {
         initTable();
     }
       private void initTable(){
-        
-                
-     JFXTreeTableColumn<Querellante, String> colCedula = new JFXTreeTableColumn<>("Cedula");
+        JFXTreeTableColumn<Querellante, String> colCedula = new JFXTreeTableColumn<>("Cédula");
         colCedula.setPrefWidth(150);
         colCedula.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().cedula);
         JFXTreeTableColumn<Querellante, String> colNombre = new JFXTreeTableColumn<>("Nombre");
@@ -94,13 +92,12 @@ public class CRUDQuerellanteController implements Initializable {
         JFXTreeTableColumn<Querellante, String> colApellido = new JFXTreeTableColumn<>("Apellido");
         colApellido.setPrefWidth(150);
         colApellido.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().apellido);
-        JFXTreeTableColumn<Querellante, String> colTele = new JFXTreeTableColumn<>("Telefono");
+        JFXTreeTableColumn<Querellante, String> colTele = new JFXTreeTableColumn<>("Teléfono");
         colTele.setPrefWidth(150);
         colTele.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().telefono);
-        JFXTreeTableColumn<Querellante, String> colDir = new JFXTreeTableColumn<>("Direccion");
+        JFXTreeTableColumn<Querellante, String> colDir = new JFXTreeTableColumn<>("Dirección");
         colDir.setPrefWidth(150);
         colDir.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().direccion);
-       
         JFXTreeTableColumn<Querellante, HBox> colEdit = new JFXTreeTableColumn<>("Acciones");
         colEdit.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, HBox> param) -> param.getValue().getValue().actions);
         colEdit.setPrefWidth(200);
