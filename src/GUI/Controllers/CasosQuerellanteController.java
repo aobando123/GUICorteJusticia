@@ -49,12 +49,13 @@ public class CasosQuerellanteController implements Initializable {
     private String previusPage;
     
      private ObservableList<Caso> casosColection = FXCollections.observableArrayList();
+     
+    private int crearCasoIdPersona;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
     @FXML
@@ -88,11 +89,12 @@ public class CasosQuerellanteController implements Initializable {
      }
     
     private void fillList(int id) {
+        crearCasoIdPersona = id;
         casosColection  = FXCollections.observableArrayList();
         GestorCasos gc = new GestorCasos();
         ArrayList<String[]> list;
         try {
-            list = gc.getQuerellantes(id);
+            list = gc.getQuerellantes(crearCasoIdPersona);
             for (String[] lis : list) {
             casosColection.add(new Caso(lis[0], lis[1],
                     lis[2], lis[3]));
@@ -100,6 +102,11 @@ public class CasosQuerellanteController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(CasosQuerellanteController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void setId(int id)
+    {
+        mostrarCasos();
     }
     
     private class Caso extends RecursiveTreeObject<Caso> {
@@ -156,4 +163,11 @@ public class CasosQuerellanteController implements Initializable {
         });
         return btn;
     }  
+    
+    @FXML
+    void crearCaso(MouseEvent ev)
+    {
+        BuscarQuerellanteController crearCasoFuntion = new BuscarQuerellanteController();
+        crearCasoFuntion.creaCaso(ev, crearCasoIdPersona, "CasosQuerellante");        
+    }
 }

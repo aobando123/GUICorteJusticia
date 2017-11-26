@@ -102,6 +102,10 @@ public class LoginEmpleadoController implements Initializable {
     private void goToCasos(MouseEvent mEvent) throws IOException{
         Parent loginEmpView;
         String fileName = "Casos"+ gl.getUserType() + ".fxml";
+        if(gl.getUserType().equals("Secretario"))
+        {
+            fileName = "BuscarQuerellante.fxml";
+        }
         loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/"+ fileName));
         Scene logScene = new Scene(loginEmpView);
         

@@ -14,7 +14,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <MaterialDesignIconView fill="#12da12" glyphName="PLUS_CIRCLE" layoutX="1062.0" layoutY="138.0" size="50.0" />
+      <MaterialDesignIconView fill="#12da12" glyphName="PLUS_CIRCLE" layoutX="1062.0" layoutY="138.0" onMouseClicked="#crearCaso" size="50.0" />
       <Label layoutX="847.0" layoutY="100.0" text="Crear Nuevo Caso">
          <font>
             <Font size="27.0" />
