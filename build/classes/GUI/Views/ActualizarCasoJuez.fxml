@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.ActualizarCasoJuezController">
+   <children>
+      <Label layoutX="516.0" layoutY="29.0" text="Actualizar Caso">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="207.0" text="Número de Caso:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="numeroCaso" layoutX="286.0" layoutY="207.0" text="Label">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="337.0" text="Descripción:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="descripcion" disable="true" layoutX="103.0" layoutY="390.0" prefHeight="175.0" prefWidth="449.0" />
+      <Label layoutX="103.0" layoutY="624.0" text="Fecha creación:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="fecha" layoutX="277.0" layoutY="624.0" text="Fecha">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="725.0" layoutY="207.0" text="Querellante:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="querellante" layoutX="866.0" layoutY="207.0" text="Querellante:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="725.0" layoutY="337.0" text="Estado:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="actualizarCaso" layoutX="552.0" layoutY="718.0" onMouseClicked="#actualizar" prefHeight="36.0" prefWidth="96.0" text="Actualizar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ComboBox fx:id="cb" layoutX="829.0" layoutY="340.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

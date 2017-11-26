@@ -101,17 +101,19 @@ public class LoginEmpleadoController implements Initializable {
     @FXML    
     private void goToCasos(MouseEvent mEvent) throws IOException{
         Parent loginEmpView;
-        String fileName = "Casos"+ gl.getUserType() + ".fxml";
-        if(gl.getUserType().equals("Secretario"))
-        {
-            fileName = "BuscarQuerellante.fxml";
-        }
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/"+ fileName));
+        String fileName = gl.getUserType() == "Secretario" ? "BuscarQuerellante.fxml": "Casos"+ gl.getUserType() + ".fxml";
+               
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/"+ fileName));
+        loginEmpView = (AnchorPane) loader.load();
         Scene logScene = new Scene(loginEmpView);
         
         Stage curStage = (Stage) ((Node) mEvent.getSource()).getScene().getWindow();
         curStage.setScene(logScene);
         
+        if(!gl.getUserType().equals("Secretario")){
+        CasosJuezController controller = loader.<CasosJuezController>getController();
+                controller.mostrarCasos(gl.getCurrentUser().getIdPersona());
+        }
         curStage.show();
     }
 }

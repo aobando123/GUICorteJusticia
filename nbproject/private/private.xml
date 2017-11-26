@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/Controllers/CRUDQuerellanteController.java</file>
-            <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/Controllers/CasosQuerellanteController.java</file>
+            <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/Controllers/CasosJuezController.java</file>
+            <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/Controllers/ActualizarCasoJuezController.java</file>
             <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/GUICorteJusticia.java</file>
+            <file>file:/C:/Users/Mauricio/Desktop/Proyecto%20OO/Codigo/GUICorteJusticia/src/GUI/Controllers/LoginEmpleadoController.java</file>
         </group>
     </open-files>
 </project-private>

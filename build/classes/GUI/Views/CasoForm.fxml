@@ -19,7 +19,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <MaterialDesignIconView fill="#40b9ee" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="57.0" layoutY="108.0" onMouseClicked="#regresar" size="75.0" wrappingWidth="77.00000059604645">
+      <MaterialDesignIconView fx:id="back" fill="#40b9ee" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="57.0" layoutY="108.0" size="75.0" wrappingWidth="77.00000059604645">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

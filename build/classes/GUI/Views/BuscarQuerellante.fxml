@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.Controllers.BuscarQuerellanteController">
-    
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" style="-fx-background-color: #40B9EE;" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.BuscarQuerellanteController">
+   <children>
+      <Label layoutX="210.0" layoutY="233.0" styleClass="h1" text="Digite la cédula del querellante para buscarlo en el sistema" textFill="WHITE" />
+      <JFXTextField fx:id="cedula" focusColor="#e9eeff" layoutX="217.0" layoutY="357.0" prefHeight="66.0" prefWidth="767.0" unFocusColor="WHITE">
+         <styleClass>
+            <String fx:value="input" />
+            <String fx:value="gtextbtn" />
+         </styleClass></JFXTextField>
+      <JFXButton fx:id="btnBuscar" buttonType="RAISED" layoutX="535.0" layoutY="488.0" onMouseClicked="#buscarQuerellante" prefHeight="58.0" prefWidth="131.0" ripplerFill="WHITE" text="Buscar" textFill="WHITE">
+         <styleClass>
+            <String fx:value="gtextbtn" />
+            <String fx:value="btn-registro" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="message" layoutX="580.0" layoutY="447.0" styleClass="gtext" textFill="RED" />
+   </children>
 </AnchorPane>
