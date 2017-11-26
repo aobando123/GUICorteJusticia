@@ -16,8 +16,9 @@ import javafx.scene.paint.Color;
  * @author mean
  */
 public class FormValidation {
-        final Color error = Color.web("#F44436");
-        final Color normal = Color.web("#4d4d4d");
+
+    final Color error = Color.web("#F44436");
+    final Color normal = Color.web("#4d4d4d");
 
     public FormValidation() {
     }
@@ -25,7 +26,7 @@ public class FormValidation {
     public String validTextField(JFXTextField input) {
         String errorMsgs = "";
         int i = 0;
-        
+
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
@@ -36,11 +37,11 @@ public class FormValidation {
         }
         return errorMsgs;
     }
-    
-      public String validTextField(JFXPasswordField input) {
+
+    public String validTextField(JFXPasswordField input) {
         String errorMsgs = "";
         int i = 0;
-        
+
         if (input.getText().equals("")) {
 
             input.setUnFocusColor(error);
@@ -68,7 +69,7 @@ public class FormValidation {
     }
 
     private String validNumber(JFXTextField numb) {
- 
+
         try {
             int textNumber = Integer.parseInt(numb.getText());
             numb.setUnFocusColor(normal);
@@ -83,8 +84,63 @@ public class FormValidation {
 
     }
 
-    public void validateForm(JFXTextField[] arrayFields, int[] numFields, Label[] labels) {
+    public boolean validateField(JFXTextField field, Label labels) {
+        String error = validTextField(field);
+        boolean valid = true;
+        if (!error.equals("")) {
+            labels.setText(error);
+            valid = false;
+        } else {
+            error = validNumber(field);
+            if (!error.equals("")) {
+                labels.setText(error);
+                valid = false;
+            }
 
+        }
+        return valid;
+    }
+    public boolean validatedArea(JFXTextArea field, Label labels) {
+        String error = validTextArea(field);
+        boolean valid = true;
+        if (!error.equals("")) {
+            labels.setText(error);
+            valid = false;
+        }
+
+        
+        return valid;
+    }
+    
+
+    public boolean validateForm(JFXTextField[] arrayFields, int[] numFields, Label[] labels) {
+        String error;
+        boolean valid = true;
+        for (int i = 0; i < arrayFields.length; i++) {
+
+            error = validTextField(arrayFields[i]);
+            if (!error.equals("")) {
+                labels[i].setText(error);
+                valid = false;
+            } else {
+
+                labels[i].setText("");
+                //Verificar campos numeros
+                for (int numField : numFields) {
+                    if (numField == i) {
+                        error = validNumber(arrayFields[i]);
+                        if (!error.equals("")) {
+                            labels[i].setText(error);
+                            valid = false;
+                        }
+
+                    }
+                }
+                //Fin del Verificar campos numeros
+            }
+        }
+
+        return valid;
     }
 
     public boolean validateForm(JFXTextField[] arrayFields, int[] numFields, JFXTextArea ta, Label[] labels) {
@@ -118,8 +174,8 @@ public class FormValidation {
         if (!error.equals("")) {
             labels[labels.length - 1].setText(error);
             valid = false;
-        }else{
-             labels[labels.length - 1].setText("");
+        } else {
+            labels[labels.length - 1].setText("");
         }
         return valid;
 

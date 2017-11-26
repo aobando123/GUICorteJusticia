@@ -32,6 +32,11 @@
     -fx-font-size: 16px;
     
 }
+.gtextbtn{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    
+}
 .btn-querellante:hover{
     -fx-background-color: #4FCE98;
 }
@@ -76,12 +81,12 @@
     
 }
 
-.btn-deletet:hover{
+.btn-delete:hover{
     -fx-background-color: #EA3169;
     
 }
 .tree-table-view .column-header{
-    -fx-background-color:  #FFB700;
+    -fx-background-color:  #03a9f4;
      -fx-text-fill: #fff;
    
     
