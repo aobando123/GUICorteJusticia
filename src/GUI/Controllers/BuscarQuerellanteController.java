@@ -61,7 +61,7 @@ public class BuscarQuerellanteController implements Initializable {
                 if(id==0){
                 alertaCreaQuere(mEvent);
                 }else{
-                    creaCaso(mEvent, id);
+                    creaCaso(mEvent, id, false);
                 }
             } catch (SQLException  ex ) {
                 Logger.getLogger(BuscarQuerellanteController.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,7 +107,7 @@ public class BuscarQuerellanteController implements Initializable {
             }
     }
       
-     void creaCaso(MouseEvent event, int id){
+     void creaCaso(MouseEvent event, int id, boolean isQ){
          Parent loginEmpView;
       try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasoForm.fxml"));
@@ -118,16 +118,18 @@ public class BuscarQuerellanteController implements Initializable {
                 curStage.setScene(logScene);
 
                 CasoFormController controller = loader.<CasoFormController>getController();
-                controller.setCaso(id, "BuscarQuerellante");
-                
+                if(isQ)
+                {
+                    controller.setCasoQuere(id, "CasosQuerellante");
+                }
+                else
+                {
+                    controller.setCaso(id, "BuscarQuerellante");
+                }
                 curStage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
             }
-     
      }
-      
-      
-    
 }

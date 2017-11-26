@@ -75,7 +75,7 @@ public class CasoFormController implements Initializable {
         crear.setId(id + "");
         fxml = fx;
         back.setOnMouseClicked((event) -> {
-            regresar(event, id);
+            regresarQuerellante(event);
         });
 
     }
@@ -108,7 +108,7 @@ public class CasoFormController implements Initializable {
         }
     }
 
-    void regresar(MouseEvent event, int id) {
+    void regresarQuerellante(MouseEvent event) {
 
         Parent loginEmpView = null;
 
@@ -124,7 +124,7 @@ public class CasoFormController implements Initializable {
         curStage.setScene(logScene);
 
         CasosQuerellanteController controller = loader.<CasosQuerellanteController>getController();
-        controller.mostrarCasos(id);
+        controller.mostrarCasos(Integer.parseInt(crear.getId()));
         controller.setFXML("LoginQuerellante");
 
         curStage.show();

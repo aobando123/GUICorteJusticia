@@ -103,12 +103,7 @@ public class CasosQuerellanteController implements Initializable {
             Logger.getLogger(CasosQuerellanteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void setId(int id)
-    {
-        mostrarCasos();
-    }
-    
+     
     private class Caso extends RecursiveTreeObject<Caso> {
 
         StringProperty idCaso;
@@ -168,6 +163,6 @@ public class CasosQuerellanteController implements Initializable {
     void crearCaso(MouseEvent ev)
     {
         BuscarQuerellanteController crearCasoFuntion = new BuscarQuerellanteController();
-        crearCasoFuntion.creaCaso(ev, crearCasoIdPersona, "CasosQuerellante");        
+        crearCasoFuntion.creaCaso(ev, crearCasoIdPersona, true);        
     }
 }
