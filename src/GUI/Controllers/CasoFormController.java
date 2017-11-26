@@ -9,6 +9,7 @@ import Logic.GestorCasos;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import formValidaton.FormValidation;
 import java.io.IOException;
 
@@ -55,6 +56,8 @@ public class CasoFormController implements Initializable {
 
     @FXML
     private Label labelDescripcion;
+    @FXML
+    private MaterialDesignIconView back;
 
     private String fxml;
 
@@ -62,30 +65,70 @@ public class CasoFormController implements Initializable {
         crear.setId(id + "");
         fxml = fx;
 
+        back.setOnMouseClicked((event) -> {
+            regresar(event);
+        });
+
+    }
+
+    public void setCasoQuere(int id, String fx) {
+        crear.setId(id + "");
+        fxml = fx;
+        back.setOnMouseClicked((event) -> {
+            regresar(event, id);
+        });
+
     }
 
     @FXML
     void crearCaso(MouseEvent event) throws IOException, SQLException {
         FormValidation fv = new FormValidation();
         if (fv.validatedArea(descripcion, labelDescripcion)) {
-           
-                gc.createCaso(Integer.parseInt(crear.getId()), descripcion.getText());
-                regresar(event);
-            
+
+            gc.createCaso(Integer.parseInt(crear.getId()), descripcion.getText());
+            regresar(event);
+
         }
     }
 
     @FXML
-    void regresar(MouseEvent event) throws IOException {
-Parent loginEmpView;
+    void regresar(MouseEvent event) {
+        try {
+            Parent loginEmpView;
+            
+            loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/" + fxml + ".fxml"));
+            Scene logScene = new Scene(loginEmpView);
+            
+            Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            curStage.setScene(logScene);
+            
+            curStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/"+fxml+".fxml"));
+    void regresar(MouseEvent event, int id) {
+
+        Parent loginEmpView = null;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
+        try {
+            loginEmpView = (AnchorPane) loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Scene logScene = new Scene(loginEmpView);
 
         Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         curStage.setScene(logScene);
 
+        CasosQuerellanteController controller = loader.<CasosQuerellanteController>getController();
+        controller.mostrarCasos(id);
+        controller.setFXML("LoginQuerellante");
+
         curStage.show();
+
     }
 
 }
