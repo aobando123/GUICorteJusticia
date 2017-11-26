@@ -5,7 +5,8 @@
  */
 package GUI.Controllers;
 
-import Logic.GestorCaso;
+
+import Logic.GestorCasos;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -45,7 +46,7 @@ public class SecretarioUIController implements Initializable {
     @FXML
     private JFXTreeTableView<Caso> tblCasos;
      private ObservableList<Caso> cases = FXCollections.observableArrayList();
-     private GestorCaso gc = new GestorCaso();
+     private GestorCasos gc = new GestorCasos();
 
     /**
      * Initializes the controller class.

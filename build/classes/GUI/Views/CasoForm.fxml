@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CasoFormController">
+   <children>
+      <JFXButton fx:id="crear" buttonType="RAISED" layoutX="530.0" layoutY="579.0" onMouseClicked="#crearCaso" prefHeight="67.0" prefWidth="140.0" text="Crear" textFill="WHITE">
+         <styleClass>
+            <String fx:value="btn-empleado" />
+            <String fx:value="h3" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <MaterialDesignIconView fill="#40b9ee" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="57.0" layoutY="108.0" onMouseClicked="#regresar" size="75.0" wrappingWidth="77.00000059604645">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MaterialDesignIconView>
+      <JFXTextArea fx:id="descripcion" focusColor="#40b9ee" labelFloat="true" layoutX="289.0" layoutY="203.0" prefHeight="238.0" prefWidth="622.0" promptText="Descripcion">
+         <styleClass>
+            <String fx:value="body" />
+            <String fx:value="gtext" />
+         </styleClass>
+      </JFXTextArea>
+      <Label fx:id="labelDescripcion" layoutX="490.0" layoutY="459.0" textFill="#f50000" />
+      <Label layoutX="520.0" layoutY="80.0" styleClass="h1" stylesheets="@../resources/gui.css" text="Crear Caso" />
+   </children>
+</AnchorPane>
