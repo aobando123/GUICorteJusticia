@@ -132,4 +132,9 @@ public class BuscarQuerellanteController implements Initializable {
                 Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
             }
      }
+     @FXML
+    private void logout(MouseEvent event){
+     MenuAdminController ma = new MenuAdminController();
+     ma.goTo(event, "LoginEmpleado");
+    }
 }

@@ -201,5 +201,10 @@ public class CasosJuezController implements Initializable {
 
         });
         return btn;
-    }  
+    }
+      @FXML
+    private void logout(MouseEvent event){
+     MenuAdminController ma = new MenuAdminController();
+     ma.goTo(event, "LoginEmpleado");
+    }
 }

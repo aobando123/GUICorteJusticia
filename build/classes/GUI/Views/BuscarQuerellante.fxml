@@ -25,5 +25,14 @@
          </cursor>
       </JFXButton>
       <Label fx:id="message" layoutX="580.0" layoutY="447.0" styleClass="gtext" textFill="RED" />
+      <JFXButton buttonType="RAISED" layoutX="1098.0" layoutY="717.0" onMouseClicked="#logout" prefHeight="38.0" prefWidth="77.0" text="Log out" textFill="WHITE">
+         <styleClass>
+            <String fx:value="btn-registro" />
+            <String fx:value="gtext" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

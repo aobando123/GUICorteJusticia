@@ -165,4 +165,9 @@ public class CasosQuerellanteController implements Initializable {
         BuscarQuerellanteController crearCasoFuntion = new BuscarQuerellanteController();
         crearCasoFuntion.creaCaso(ev, crearCasoIdPersona, true);        
     }
+       @FXML
+    private void logout(MouseEvent event){
+     MenuAdminController ma = new MenuAdminController();
+     ma.goTo(event, "LoginQuerellante");
+    }
 }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -20,5 +23,14 @@
             <Font size="27.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="1099.0" layoutY="718.0" onMouseClicked="#logout" prefHeight="38.0" prefWidth="77.0" text="Log out" textFill="WHITE">
+         <styleClass>
+            <String fx:value="btn-registro" />
+            <String fx:value="gtext" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

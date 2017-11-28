@@ -124,5 +124,10 @@ public class HistorialCasosController implements Initializable {
         curStage.show();
 
     }
+       @FXML
+    private void logout(MouseEvent event){
+     MenuAdminController ma = new MenuAdminController();
+     ma.goTo(event, "LoginEmpleado");
+    }
 
 }

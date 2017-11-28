@@ -38,15 +38,8 @@ public class StartMenuController implements Initializable {
     }
      @FXML
     private void goToLoginEmp(MouseEvent event) throws IOException{
-        Parent loginEmpView;
-        
-        loginEmpView = (AnchorPane) FXMLLoader.load(getClass().getResource("/GUI/Views/LoginEmpleado.fxml"));
-        Scene logScene = new Scene(loginEmpView);
-        
-        Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        curStage.setScene(logScene);
-        
-        curStage.show();
+        MenuAdminController ma = new MenuAdminController();
+        ma.goTo(event, "LoginEmpleado");
     }
      @FXML
     private void goToLogQuere(MouseEvent event) throws IOException{

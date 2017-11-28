@@ -103,7 +103,6 @@ public class EditSecretarioController implements Initializable {
     }
     
     public void setCreate(){
-        
         update.setText("Registrar");
         update.setOnMouseClicked((event) -> {
             try {

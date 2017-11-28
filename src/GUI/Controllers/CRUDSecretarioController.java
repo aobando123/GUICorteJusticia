@@ -70,7 +70,11 @@ public class CRUDSecretarioController implements Initializable {
        initTable();
 
     }
-    
+     @FXML
+    private void regresar(MouseEvent event){
+        MenuAdminController ma = new MenuAdminController();
+        ma.goTo(event, "MenuAdmin");
+    }
     private void initTable(){
         
                 
@@ -237,5 +241,10 @@ public class CRUDSecretarioController implements Initializable {
 
         }
 
+    }
+     @FXML
+    private void logout(MouseEvent event){
+     MenuAdminController ma = new MenuAdminController();
+     ma.goTo(event, "LoginEmpleado");
     }
 }

@@ -5,7 +5,7 @@
  */
 package GUI.Controllers;
 
-import Logic.GestorQuerellante;
+import Logic.GestorJuez;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -45,36 +45,15 @@ import javafx.stage.Stage;
  *
  * @author mean
  */
-public class CRUDQuerellanteController implements Initializable {
+public class CRUDJuezController implements Initializable {
 
-    @FXML
-    private JFXTreeTableView<Querellante> tblQuerellante;
     
-    private GestorQuerellante gq = new GestorQuerellante();
-    private ObservableList<Querellante> queres = FXCollections.observableArrayList();
-
-    @FXML
-    void crearQuerellante(MouseEvent event) {
-        Parent loginEmpView;
-
-        try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/registrarQuerellante.fxml"));
-                loginEmpView = (AnchorPane) loader.load();
-                Scene logScene = new Scene(loginEmpView);
-
-                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                curStage.setScene(logScene);
-
-                RegistrarQuerellanteController controller = loader.<RegistrarQuerellanteController>getController();
-                controller.setCreate();
-                controller.setFXML("CRUDQuerellante");
-                curStage.show();
-
-            } catch (IOException ex) {
-                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }
-
+       @FXML
+    private JFXTreeTableView<Juez> tblJuez;
+      
+    
+     private ObservableList<Juez> jueces = FXCollections.observableArrayList();
+      GestorJuez gestJuez = new GestorJuez();
     /**
      * Initializes the controller class.
      */
@@ -83,49 +62,42 @@ public class CRUDQuerellanteController implements Initializable {
         initTable();
     }
     private void initTable(){
-        JFXTreeTableColumn<Querellante, String> colCedula = new JFXTreeTableColumn<>("Cédula");
+        JFXTreeTableColumn<Juez, String> colCedula = new JFXTreeTableColumn<>("# de Juez");
         colCedula.setPrefWidth(150);
-        colCedula.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().cedula);
-        JFXTreeTableColumn<Querellante, String> colNombre = new JFXTreeTableColumn<>("Nombre");
+        colCedula.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, String> param) -> param.getValue().getValue().numeroJuez);
+        JFXTreeTableColumn<Juez, String> colNombre = new JFXTreeTableColumn<>("Cedula");
         colNombre.setPrefWidth(150);
-        colNombre.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().nombre);
-        JFXTreeTableColumn<Querellante, String> colApellido = new JFXTreeTableColumn<>("Apellido");
+        colNombre.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, String> param) -> param.getValue().getValue().cedula);
+        JFXTreeTableColumn<Juez, String> colApellido = new JFXTreeTableColumn<>("Nombre");
         colApellido.setPrefWidth(150);
-        colApellido.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().apellido);
-        JFXTreeTableColumn<Querellante, String> colTele = new JFXTreeTableColumn<>("Teléfono");
+        colApellido.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, String> param) -> param.getValue().getValue().nombre);
+        JFXTreeTableColumn<Juez, String> colTele = new JFXTreeTableColumn<>("Usuario");
         colTele.setPrefWidth(150);
-        colTele.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().telefono);
-        JFXTreeTableColumn<Querellante, String> colDir = new JFXTreeTableColumn<>("Dirección");
+        colTele.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, String> param) -> param.getValue().getValue().nombreUsuario);
+        JFXTreeTableColumn<Juez, String> colDir = new JFXTreeTableColumn<>("Sala");
         colDir.setPrefWidth(150);
-        colDir.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, String> param) -> param.getValue().getValue().direccion);
-        JFXTreeTableColumn<Querellante, HBox> colEdit = new JFXTreeTableColumn<>("Acciones");
-        colEdit.setCellValueFactory((TreeTableColumn.CellDataFeatures<Querellante, HBox> param) -> param.getValue().getValue().actions);
+        colDir.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, String> param) -> param.getValue().getValue().sala);
+        JFXTreeTableColumn<Juez, HBox> colEdit = new JFXTreeTableColumn<>("Acciones");
+        colEdit.setCellValueFactory((TreeTableColumn.CellDataFeatures<Juez, HBox> param) -> param.getValue().getValue().actions);
         colEdit.setPrefWidth(200);
         fillList();
-        final TreeItem<Querellante> root = new RecursiveTreeItem<>(queres, RecursiveTreeObject::getChildren);
-        tblQuerellante.getColumns().setAll(colCedula, colNombre, colApellido, colTele, colDir, colEdit);
-        tblQuerellante.setRoot(root);
-        tblQuerellante.setShowRoot(false);
+        final TreeItem<Juez> root = new RecursiveTreeItem<>(jueces, RecursiveTreeObject::getChildren);
+        tblJuez.getColumns().setAll(colCedula, colNombre, colApellido, colTele, colDir, colEdit);
+        tblJuez.setRoot(root);
+        tblJuez.setShowRoot(false);
     }
-
-
-    private void fillList() {
-        queres  = FXCollections.observableArrayList();
+       private void fillList() {
+        jueces  = FXCollections.observableArrayList();
 
         try {
-            ArrayList<String[]> list = gq.getQuerellantes();
+            ArrayList<String[]> list = gestJuez.getJueces();
             for (String[] lis : list) {
-                queres.add(new Querellante(lis[0], lis[1],
-                        lis[2], lis[3], lis[4], lis[5]));
+                jueces.add(new Juez(lis[0], lis[1],
+                        lis[2], lis[3], lis[4], lis[5],lis[6]));
             }
         } catch (SQLException | IOException e) {
         }
 
-    }
-    @FXML
-    private void regresar(MouseEvent event){
-        MenuAdminController ma = new MenuAdminController();
-        ma.goTo(event, "MenuAdmin");
     }
     
     @FXML
@@ -133,7 +105,6 @@ public class CRUDQuerellanteController implements Initializable {
      MenuAdminController ma = new MenuAdminController();
      ma.goTo(event, "LoginEmpleado");
     }
-    
     private JFXButton setEditButton() {
         JFXButton btn = new JFXButton("Editar");
         btn.getStyleClass().add("btn-edit");
@@ -185,44 +156,52 @@ public class CRUDQuerellanteController implements Initializable {
         });
         return btn;
     }
-    
-    private void deleteRow(int i){
-        try {
-           gq.delete(i);
+     private void deleteRow(int i){
+        //try {
+           //gq.delete(i);
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Se elimino secretario");
             alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
             alerta.showAndWait();
             initTable();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     //   } catch (SQLException ex) {
+      //     Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+       // } catch (IOException ex) {
+        //    Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+        //}
     }
+        @FXML
+    void crearJuez(MouseEvent event) {
 
- private class Querellante extends RecursiveTreeObject<Querellante> {
+    }
+      @FXML
+    void regresar(MouseEvent event) {
+
+    }
+    private class Juez extends RecursiveTreeObject<Juez> {
 
         StringProperty idPersona;
+        StringProperty numeroJuez;
         StringProperty cedula;
         StringProperty nombre;
-        StringProperty apellido;
-        StringProperty telefono;
-        StringProperty direccion;
-        
+        StringProperty idUsuario;
+        StringProperty nombreUsuario;
+        StringProperty sala;
+
         JFXButton editbtn;
         JFXButton deletebtn;
         ObjectProperty<HBox> actions;
 
-        public Querellante(String idPersona, String cedula, String nombre, String apellido,
-                String telefono, String direccion) {
+        public Juez(String idPersona, String cedula, String nombre, String numeroJuez,
+                String sala, String nombreUsuario, String idUsuario) {
             this.idPersona = new SimpleStringProperty(idPersona);
+            this.numeroJuez = new SimpleStringProperty(numeroJuez);
             this.cedula = new SimpleStringProperty(cedula);
             this.nombre = new SimpleStringProperty(nombre);
-            this.apellido = new SimpleStringProperty(apellido);
-            this.telefono = new SimpleStringProperty(telefono);
-            this.direccion = new SimpleStringProperty(direccion);
-            
+            this.idUsuario = new SimpleStringProperty(idUsuario);
+            this.nombreUsuario = new SimpleStringProperty(nombreUsuario);
+            this.sala = new SimpleStringProperty(sala);
+       
             editbtn = setEditButton();
             deletebtn = setDeleteButton();
             editbtn.setId(idPersona);
@@ -233,4 +212,5 @@ public class CRUDQuerellanteController implements Initializable {
         }
 
     }
+    
 }
