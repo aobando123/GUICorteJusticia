@@ -13,3 +13,4 @@ build/classes/GUI/Controllers/CRUDSecretarioController$Secretario.class
 build/classes/GUI/Controllers/CRUDSecretarioController.class
 build/classes/GUI/Controllers/EditSecretarioController.class
 *.properties
+/dist/

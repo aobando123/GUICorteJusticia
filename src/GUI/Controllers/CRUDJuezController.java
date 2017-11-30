@@ -116,16 +116,16 @@ public class CRUDJuezController implements Initializable {
             Parent loginEmpView = null;
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/registrarQuerellante.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/formJuez.fxml"));
                 loginEmpView = (AnchorPane) loader.load();
                 Scene logScene = new Scene(loginEmpView);
 
                 Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 curStage.setScene(logScene);
 
-                RegistrarQuerellanteController controller = loader.<RegistrarQuerellanteController>getController();
-                controller.setUpdate(id);
-                controller.setFXML("CRUDQuerellante");
+                FormJuezController controller = loader.<FormJuezController>getController();
+                controller.setActualizar(id);
+                
                 curStage.show();
 
             } catch (IOException ex) {
@@ -157,21 +157,39 @@ public class CRUDJuezController implements Initializable {
         return btn;
     }
      private void deleteRow(int i){
-        //try {
-           //gq.delete(i);
+        try {
+           gestJuez.delete(i);
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Se elimino secretario");
             alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
             alerta.showAndWait();
             initTable();
-     //   } catch (SQLException ex) {
-      //     Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-       // } catch (IOException ex) {
-        //    Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+        } catch (SQLException ex) {
+           Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
         @FXML
     void crearJuez(MouseEvent event) {
+            Parent loginEmpView = null;
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/formJuez.fxml"));
+                loginEmpView = (AnchorPane) loader.load();
+                Scene logScene = new Scene(loginEmpView);
+
+                Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                curStage.setScene(logScene);
+
+                FormJuezController controller = loader.<FormJuezController>getController();
+                controller.setCreate();
+                
+                curStage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
       @FXML

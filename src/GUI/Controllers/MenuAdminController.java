@@ -37,7 +37,7 @@ public class MenuAdminController implements Initializable {
     
         @FXML
     void goToJueces(MouseEvent event) {
-            goTo(event, "CRUDJueces");
+            goTo(event, "CRUDJuez");
     }
 
     @FXML
@@ -46,11 +46,11 @@ public class MenuAdminController implements Initializable {
     }
 
     @FXML
-    void goToSecretarios(MouseEvent event) {
+    public void goToSecretarios(MouseEvent event) {
         goTo(event, "CRUDSecretario");
     }
     
-    void goTo(MouseEvent event, String fxml){
+    public void goTo(MouseEvent event, String fxml){
       Parent loginEmpView;
       try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/"+fxml+".fxml"));
