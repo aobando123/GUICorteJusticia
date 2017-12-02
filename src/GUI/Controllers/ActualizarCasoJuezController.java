@@ -13,6 +13,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -54,10 +57,15 @@ public class ActualizarCasoJuezController implements Initializable {
     private ComboBox<String> cb;
     
     private String juezId;
+    
+    @FXML
+    private VBox solucion;
 
     private GestorCasos gc = new GestorCasos();
+    
     @FXML
     private JFXButton actualizarCaso;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -76,7 +84,21 @@ public class ActualizarCasoJuezController implements Initializable {
         cb.getSelectionModel().select(result[4]);        
         querellante.setText(result[3]);
         actualizarCaso.setId(id);
-        juezId = juez+"";                
+        juezId = juez+"";   
+        cb.valueProperty().addListener(new ChangeListener<String>(){
+        @Override public void changed(ObservableValue ov, String t, String t1)
+        {
+            System.out.println(ov);
+            System.out.println(t);
+            System.out.println(t1);
+            Label lbSol = new Label();
+            lbSol.setText("Solución:");
+            TextArea txA = new JFXTextArea();
+            solucion.getChildren().add(lbSol);
+            solucion.getChildren().add(txA);
+            
+        }
+        });
     }
 
     
