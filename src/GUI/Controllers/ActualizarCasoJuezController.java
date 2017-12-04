@@ -66,6 +66,8 @@ public class ActualizarCasoJuezController implements Initializable {
     @FXML
     private JFXButton actualizarCaso;
     
+    TextArea txA;    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -88,17 +90,20 @@ public class ActualizarCasoJuezController implements Initializable {
         cb.valueProperty().addListener(new ChangeListener<String>(){
         @Override public void changed(ObservableValue ov, String t, String t1)
         {
-            System.out.println(ov);
-            System.out.println(t);
-            System.out.println(t1);
-            Label lbSol = new Label();
-            lbSol.setText("Solución:");
-            TextArea txA = new JFXTextArea();
-            solucion.getChildren().add(lbSol);
-            solucion.getChildren().add(txA);
-            
+            if(t1.equals("Resuelto"))
+            {
+                Label lbSol = new Label();
+                lbSol.setText("Resolución:");
+                txA = new JFXTextArea();
+                solucion.getChildren().add(lbSol);
+                solucion.getChildren().add(txA);
+            }
         }
         });
+        if(result[4].equals("Resuelto"))
+        {
+            actualizarCaso.setDisable(true);
+        }
     }
 
     
@@ -107,6 +112,10 @@ public class ActualizarCasoJuezController implements Initializable {
     {
         Parent loginEmpView;
         gc.updateEstadoCaso(actualizarCaso.getId(), cb.getSelectionModel().getSelectedItem());
+        if(cb.getSelectionModel().getSelectedItem().equals("Resuleto"))
+        {
+            gc.agregarSolucion(actualizarCaso.getId(),txA.getText());
+        }        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosJuez.fxml"));
         loginEmpView = (AnchorPane) loader.load();
         Scene logScene = new Scene(loginEmpView);
