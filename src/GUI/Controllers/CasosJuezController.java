@@ -189,7 +189,8 @@ public class CasosJuezController implements Initializable {
 
                 ActualizarCasoJuezController controller = loader.<ActualizarCasoJuezController>getController();
                 try {
-                    controller.actualizarCaso(crearCasoIdPersona, id);
+                    controller.actualizarCaso(crearCasoIdPersona, id, false);
+                    controller.setBack("ActualizarCasoJuez");
                 } catch (SQLException ex) {
                     Logger.getLogger(CasosJuezController.class.getName()).log(Level.SEVERE, null, ex);
                 }

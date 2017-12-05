@@ -148,7 +148,7 @@ public class CasosQuerellanteController implements Initializable {
                 curStage.setScene(logScene);
 
                 ActualizarCasoJuezController controller = loader.<ActualizarCasoJuezController>getController();
-                controller.actualizarCaso(crearCasoIdPersona,id);
+                controller.actualizarCaso(crearCasoIdPersona,id, true);
                 curStage.show();
 
             } catch (IOException ex) {

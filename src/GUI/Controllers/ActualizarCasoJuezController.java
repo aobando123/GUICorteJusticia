@@ -67,14 +67,20 @@ public class ActualizarCasoJuezController implements Initializable {
     private JFXButton actualizarCaso;
     
     TextArea txA;    
-    
+    private int id;
+    private String fxml;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
     
+    public void setBack(String fxml)
+    {
+        this.fxml = fxml;
+    }
+    
     @FXML
-    public void actualizarCaso(int juez, int idCaso) throws IOException, SQLException
+    public void actualizarCaso(int juez, int idCaso, boolean isQuerellante) throws IOException, SQLException
     {        
         String[] result = gc.getCaso(idCaso);
         numeroCaso.setText(result[0]);
@@ -100,7 +106,7 @@ public class ActualizarCasoJuezController implements Initializable {
             }
         }
         });
-        if(result[4].equals("Resuelto"))
+        if(result[4].equals("Resuelto") || isQuerellante )
         {
             actualizarCaso.setDisable(true);
                 Label lbSol = new Label();
@@ -109,6 +115,7 @@ public class ActualizarCasoJuezController implements Initializable {
                 txA.setText(result[5]);
                 solucion.getChildren().add(lbSol);
                 txA.setDisable(true);
+                cb.setDisable(true);
                 solucion.getChildren().add(txA);
         }
     }
