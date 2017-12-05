@@ -132,4 +132,9 @@ public class ActualizarCasoJuezController implements Initializable {
         curStage.setScene(logScene);
         curStage.show();
     }    
+    
+    @FXML
+    void regresar(MouseEvent event) {
+
+    }
 }

@@ -13,6 +13,7 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -139,20 +140,21 @@ public class CasosQuerellanteController implements Initializable {
             Parent loginEmpView = null;
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/registrarQuerellante.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/ActualizarCasoJuez.fxml"));
                 loginEmpView = (AnchorPane) loader.load();
                 Scene logScene = new Scene(loginEmpView);
 
                 Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 curStage.setScene(logScene);
 
-                RegistrarQuerellanteController controller = loader.<RegistrarQuerellanteController>getController();
-                controller.setUpdate(id);
-                controller.setFXML("CRUDQuerellante");
+                ActualizarCasoJuezController controller = loader.<ActualizarCasoJuezController>getController();
+                controller.actualizarCaso(crearCasoIdPersona,id);
                 curStage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(CasosQuerellanteController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         });
