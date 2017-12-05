@@ -77,6 +77,15 @@ public class CasoFormController implements Initializable {
         back.setOnMouseClicked((event) -> {
             regresarQuerellante(event);
         });
+        crear.setOnMouseClicked(event -> {
+            try {
+                crearCasoQuere(event);
+            } catch (IOException ex) {
+                Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
 
     }
 
@@ -90,6 +99,16 @@ public class CasoFormController implements Initializable {
 
         }
     }
+    void crearCasoQuere(MouseEvent event) throws IOException, SQLException {
+        FormValidation fv = new FormValidation();
+        if (fv.validatedArea(descripcion, labelDescripcion)) {
+
+            gc.createCaso(Integer.parseInt(crear.getId()), descripcion.getText());
+            regresarQuerellante(event);
+
+        }
+    }
+    
 
     @FXML
     void regresar(MouseEvent event) {

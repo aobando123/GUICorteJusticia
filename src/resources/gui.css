@@ -50,9 +50,15 @@
     -fx-text-fill: #fff;
     -fx-prompt-text-fill: #fff;
 }
+.dis{
+         -fx-font-size: 20px;
+    
+}
 .dis:disabled{
     -fx-opacity: 1.0 ;
      -fx-text-fill: #00bd6c;
+
+     
     
 }
 .btn-registro{

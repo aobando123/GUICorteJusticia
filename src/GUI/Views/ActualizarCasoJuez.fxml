@@ -37,11 +37,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="descripcion" disable="true" layoutX="103.0" layoutY="390.0" prefHeight="175.0" prefWidth="449.0" unFocusColor="BLACK">
-         <styleClass>
-            <String fx:value="gtext" />
-            <String fx:value="dis" />
-         </styleClass></JFXTextArea>
+      <JFXTextArea fx:id="descripcion" disable="true" layoutX="103.0" layoutY="390.0" prefHeight="175.0" prefWidth="449.0" styleClass="dis" unFocusColor="BLACK" />
       <Label layoutX="104.0" layoutY="632.0" text="Fecha creación:" textFill="#00bd6c">
          <font>
             <Font size="21.0" />
@@ -83,6 +79,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <VBox fx:id="solucion" layoutX="725.0" layoutY="390.0" prefHeight="248.0" prefWidth="308.0" />
+      <VBox fx:id="solucion" layoutX="725.0" layoutY="390.0" prefHeight="248.0" prefWidth="308.0" styleClass="dis" />
    </children>
 </AnchorPane>

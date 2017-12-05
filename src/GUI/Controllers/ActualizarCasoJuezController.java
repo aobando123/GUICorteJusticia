@@ -103,6 +103,13 @@ public class ActualizarCasoJuezController implements Initializable {
         if(result[4].equals("Resuelto"))
         {
             actualizarCaso.setDisable(true);
+                Label lbSol = new Label();
+                lbSol.setText("Resolución:");
+                txA = new JFXTextArea();
+                txA.setText(result[5]);
+                solucion.getChildren().add(lbSol);
+                txA.setDisable(true);
+                solucion.getChildren().add(txA);
         }
     }
 
@@ -112,7 +119,7 @@ public class ActualizarCasoJuezController implements Initializable {
     {
         Parent loginEmpView;
         gc.updateEstadoCaso(actualizarCaso.getId(), cb.getSelectionModel().getSelectedItem());
-        if(cb.getSelectionModel().getSelectedItem().equals("Resuleto"))
+        if(cb.getSelectionModel().getSelectedItem().equals("Resuelto"))
         {
             gc.agregarSolucion(actualizarCaso.getId(),txA.getText());
         }        

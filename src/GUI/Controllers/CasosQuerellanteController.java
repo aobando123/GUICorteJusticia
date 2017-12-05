@@ -164,15 +164,6 @@ public class CasosQuerellanteController implements Initializable {
     {
         BuscarQuerellanteController crearCasoFuntion = new BuscarQuerellanteController();
         crearCasoFuntion.creaCaso(ev, crearCasoIdPersona, true);   
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
-        Parent loginEmpView;
-        loginEmpView = (AnchorPane) loader.load();
-        Scene logScene = new Scene(loginEmpView);
-        CasosJuezController controller = loader.<CasosJuezController>getController();
-        mostrarCasos(crearCasoIdPersona);
-        Stage curStage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-        curStage.setScene(logScene);
-        curStage.show();
     }
     
     @FXML
