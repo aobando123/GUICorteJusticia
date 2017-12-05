@@ -71,7 +71,7 @@ public class MenuAdminController implements Initializable {
      @FXML
     private void logout(MouseEvent event){
      MenuAdminController ma = new MenuAdminController();
-     ma.goTo(event, "LoginQuerellante");
+     ma.goTo(event, "LoginEmpleado");
     }
     
     

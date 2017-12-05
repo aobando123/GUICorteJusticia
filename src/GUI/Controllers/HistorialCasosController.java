@@ -62,7 +62,7 @@ public class HistorialCasosController implements Initializable {
     {
         juezId = juez;
         JFXTreeTableColumn<Historial, String> colApellido = new JFXTreeTableColumn<>("Fecha de modificación");
-        colApellido.setPrefWidth(150);
+        colApellido.setPrefWidth(200);
         colApellido.setCellValueFactory((TreeTableColumn.CellDataFeatures<Historial, String> param) -> param.getValue().getValue().fechaCreacion);
         JFXTreeTableColumn<Historial, String> colTele = new JFXTreeTableColumn<>("Estado");
         colTele.setPrefWidth(150);

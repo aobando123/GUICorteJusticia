@@ -2,65 +2,87 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.ActualizarCasoJuezController">
    <children>
-      <Label layoutX="516.0" layoutY="29.0" text="Actualizar Caso">
-         <font>
-            <Font size="25.0" />
-         </font></Label>
-      <Label layoutX="103.0" layoutY="207.0" text="Número de Caso:">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Label fx:id="numeroCaso" layoutX="286.0" layoutY="207.0" text="Label">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="337.0" text="Descripción:">
+      <Pane layoutX="-3.0" prefHeight="168.0" prefWidth="1219.0" style="-fx-background-color: #03a9f4;">
+         <children>
+            <Label layoutX="479.0" layoutY="65.0" styleClass="h1" text="ACTUALIZAR CASO" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="103.0" layoutY="238.0" text="Número de Caso:" textFill="#00bd6c">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="descripcion" disable="true" layoutX="103.0" layoutY="390.0" prefHeight="175.0" prefWidth="449.0" />
-      <Label layoutX="103.0" layoutY="624.0" text="Fecha creación:">
+      <Label fx:id="numeroCaso" layoutX="286.0" layoutY="238.0" text="Label">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="fecha" layoutX="277.0" layoutY="624.0" text="Fecha">
+      <Label layoutX="103.0" layoutY="337.0" text="Descripción:" textFill="#00bd6c">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="725.0" layoutY="207.0" text="Querellante:">
+      <JFXTextArea fx:id="descripcion" disable="true" layoutX="103.0" layoutY="390.0" prefHeight="175.0" prefWidth="449.0" unFocusColor="BLACK">
+         <styleClass>
+            <String fx:value="gtext" />
+            <String fx:value="dis" />
+         </styleClass></JFXTextArea>
+      <Label layoutX="104.0" layoutY="632.0" text="Fecha creación:" textFill="#00bd6c">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="querellante" layoutX="866.0" layoutY="207.0" text="Querellante:">
+      <Label fx:id="fecha" layoutX="278.0" layoutY="632.0" text="Fecha">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="725.0" layoutY="337.0" text="Estado:">
+      <Label layoutX="729.0" layoutY="232.0" text="Querellante:" textFill="#00bd6c">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <JFXButton fx:id="actualizarCaso" layoutX="552.0" layoutY="718.0" onMouseClicked="#actualizar" prefHeight="36.0" prefWidth="96.0" text="Actualizar">
+      <Label fx:id="querellante" layoutX="857.0" layoutY="232.0" text="Querellante:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="725.0" layoutY="337.0" text="Estado:" textFill="#00bd6c">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="actualizarCaso" layoutX="552.0" layoutY="701.0" onMouseClicked="#actualizar" prefHeight="54.0" prefWidth="162.0" text="Actualizar" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <styleClass>
+            <String fx:value="btn-empleado" />
+            <String fx:value="h3" />
+         </styleClass>
       </JFXButton>
-      <ComboBox fx:id="cb" layoutX="829.0" layoutY="340.0" prefWidth="150.0" />
+      <ComboBox fx:id="cb" layoutX="828.0" layoutY="331.0" style="-fx-background-color: white;" styleClass="gtext">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <VBox fx:id="solucion" layoutX="725.0" layoutY="390.0" prefHeight="248.0" prefWidth="308.0" />
    </children>
 </AnchorPane>

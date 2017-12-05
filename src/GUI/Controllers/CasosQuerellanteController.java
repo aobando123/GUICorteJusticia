@@ -65,7 +65,7 @@ public class CasosQuerellanteController implements Initializable {
         colCedula.setPrefWidth(150);
         colCedula.setCellValueFactory((TreeTableColumn.CellDataFeatures<Caso, String> param) -> param.getValue().getValue().idCaso);
         JFXTreeTableColumn<Caso, String> colNombre = new JFXTreeTableColumn<>("Descripción");
-        colNombre.setPrefWidth(150);
+        colNombre.setPrefWidth(250);
         colNombre.setCellValueFactory((TreeTableColumn.CellDataFeatures<Caso, String> param) -> param.getValue().getValue().descripcion);
         JFXTreeTableColumn<Caso, String> colApellido = new JFXTreeTableColumn<>("Fecha de Creación");
         colApellido.setPrefWidth(150);
@@ -131,7 +131,7 @@ public class CasosQuerellanteController implements Initializable {
     {
         JFXButton btn = new JFXButton("Ver Solución");
         btn.getStyleClass().add("btn-edit");
-        btn.setPrefSize(90, 40);
+        btn.setPrefSize(200, 40);
 
         btn.setOnMouseClicked((MouseEvent event) -> {
             int id = Integer.parseInt(btn.getId());

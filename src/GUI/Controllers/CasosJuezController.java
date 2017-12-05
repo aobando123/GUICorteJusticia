@@ -86,7 +86,7 @@ public class CasosJuezController implements Initializable {
         colTele.setCellValueFactory((TreeTableColumn.CellDataFeatures<Caso, String> param) -> param.getValue().getValue().estado);
         JFXTreeTableColumn<Caso, HBox> colEdit = new JFXTreeTableColumn<>("Acciones");
         colEdit.setCellValueFactory((TreeTableColumn.CellDataFeatures<Caso, HBox> param) -> param.getValue().getValue().actions);
-        colEdit.setPrefWidth(200);
+        colEdit.setPrefWidth(300);
         fillList(id);
         final TreeItem<Caso> root = new RecursiveTreeItem<>(casosColection, RecursiveTreeObject::getChildren);
         tableCasos.getColumns().setAll(colCedula, colNombre, colApellido, colQuere ,colTele, colEdit);
@@ -141,7 +141,7 @@ public class CasosJuezController implements Initializable {
     {
         JFXButton btn = new JFXButton("Ver Historial");
         btn.getStyleClass().add("btn-edit");
-        btn.setPrefSize(100, 40);
+       btn.setPrefSize(120, 40);
 
         btn.setOnMouseClicked((MouseEvent event) -> {
             int id = Integer.parseInt(btn.getId());
@@ -172,7 +172,7 @@ public class CasosJuezController implements Initializable {
     {
         JFXButton btn = new JFXButton("Cambiar Estado");
         btn.getStyleClass().add("btn-edit");
-        btn.setPrefSize(100, 40);
+        btn.setPrefSize(140, 40);
 
         btn.setOnMouseClicked((MouseEvent event) -> {
             int id = Integer.parseInt(btn.getId());

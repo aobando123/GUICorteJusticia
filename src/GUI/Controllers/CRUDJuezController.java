@@ -143,8 +143,8 @@ public class CRUDJuezController implements Initializable {
         btn.setPrefSize(90, 40);
         btn.setOnMouseClicked((event) -> {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Eliminar Querellante");
-            alerta.setHeaderText("¿Está seguro de eliminar este querellante?");
+            alerta.setTitle("Eliminar Juez");
+            alerta.setHeaderText("¿Está seguro de eliminar este Juez?");
             ButtonType yesBtn = new ButtonType("Si");
             
             alerta.getButtonTypes().setAll(yesBtn,ButtonType.NO);
@@ -160,8 +160,8 @@ public class CRUDJuezController implements Initializable {
         try {
            gestJuez.delete(i);
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Se elimino secretario");
-            alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
+            alerta.setTitle("Se elimino juez");
+            alerta.setHeaderText("El juez ha sido eliminado exitosamente");
             alerta.showAndWait();
             initTable();
         } catch (SQLException ex) {
@@ -194,7 +194,8 @@ public class CRUDJuezController implements Initializable {
     }
       @FXML
     void regresar(MouseEvent event) {
-
+    MenuAdminController ma = new MenuAdminController();
+        ma.goTo(event, "MenuAdmin");
     }
     private class Juez extends RecursiveTreeObject<Juez> {
 

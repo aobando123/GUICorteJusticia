@@ -50,6 +50,11 @@
     -fx-text-fill: #fff;
     -fx-prompt-text-fill: #fff;
 }
+.dis:disabled{
+    -fx-opacity: 1.0 ;
+     -fx-text-fill: #00bd6c;
+    
+}
 .btn-registro{
     -fx-background-color:  #FFB700;
 }

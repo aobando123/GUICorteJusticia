@@ -7,17 +7,22 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1200.0" stylesheets="@../../resources/gui.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.HistorialCasosController">
    <children>
-      <MaterialDesignIconView fill="#40b9ee" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="53.0" layoutY="112.0" onMouseClicked="#regresarJuez" size="75.0" />
-      <Label layoutX="489.0" layoutY="62.0" text="Historial del Caso">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
-      <JFXTreeTableView fx:id="tableCasos" layoutX="128.0" layoutY="232.0" />
+      <Pane layoutX="-20.0" layoutY="-10.0" prefHeight="156.0" prefWidth="1232.0" style="-fx-background-color: #00bd6c;">
+         <children>
+            <Label layoutX="490.0" layoutY="65.0" text="Historial del Caso" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="WHITE" glyphName="ARROW_LEFT_BOLD_CIRCLE_OUTLINE" layoutX="97.0" layoutY="107.0" onMouseClicked="#regresarJuez" size="75.0" />
+         </children>
+      </Pane>
+      <JFXTreeTableView fx:id="tableCasos" layoutX="438.0" layoutY="190.0" styleClass="gtext" />
       <JFXButton buttonType="RAISED" layoutX="1090.0" layoutY="721.0" onMouseClicked="#logout" prefHeight="38.0" prefWidth="77.0" text="Log out" textFill="WHITE">
          <styleClass>
             <String fx:value="btn-registro" />

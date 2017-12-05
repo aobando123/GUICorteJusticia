@@ -190,8 +190,8 @@ public class CRUDQuerellanteController implements Initializable {
         try {
            gq.delete(i);
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Se elimino secretario");
-            alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
+            alerta.setTitle("Se elimino querellante");
+            alerta.setHeaderText("El querellante ha sido eliminado exitosamente");
             alerta.showAndWait();
             initTable();
         } catch (SQLException ex) {

@@ -98,7 +98,7 @@ public class LoginEmpleadoController implements Initializable {
       
     private void goToCasos(MouseEvent mEvent) throws IOException{
         Parent loginEmpView;
-        String fileName = gl.getUserType() == "Secretario" ? "BuscarQuerellante.fxml": "Casos"+ gl.getUserType() + ".fxml";
+        String fileName = "Secretario".equals(gl.getUserType()) ? "BuscarQuerellante.fxml": "Casos"+ gl.getUserType() + ".fxml";
         if(gl.getUserType().equals("Admin") ){
          fileName="MenuAdmin.fxml";
         }

@@ -194,18 +194,18 @@ public class CRUDSecretarioController implements Initializable {
     }
     
     private void deleteRow(int i){
-        //try {
-          //  gS.delete(i);
+        try {
+           gS.delete(i);
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Se elimino secretario");
             alerta.setHeaderText("El secretario ha sido eliminado exitosamente");
             alerta.showAndWait();
             initTable();
-       /* } catch (SQLException ex) {
+       } catch (SQLException ex) {
             Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(CRUDSecretarioController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }
 
     private class Secretario extends RecursiveTreeObject<Secretario> {
