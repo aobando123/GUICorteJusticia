@@ -8,11 +8,14 @@ package GUI.Controllers;
 import Logic.GestorCasos;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -37,7 +40,8 @@ import javafx.stage.Stage;
  * @author Mauricio
  */
 public class ActualizarCasoJuezController implements Initializable {
-
+    @FXML
+    private MaterialDesignIconView back;
     /**
      * Initializes the controller class.
      */
@@ -68,17 +72,11 @@ public class ActualizarCasoJuezController implements Initializable {
     
     TextArea txA;    
     private int id;
-    private String fxml;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
-    
-    public void setBack(String fxml)
-    {
-        this.fxml = fxml;
-    }
-    
+        
     @FXML
     public void actualizarCaso(int juez, int idCaso, boolean isQuerellante) throws IOException, SQLException
     {        
@@ -118,6 +116,19 @@ public class ActualizarCasoJuezController implements Initializable {
                 cb.setDisable(true);
                 solucion.getChildren().add(txA);
         }
+        if(isQuerellante)
+        {
+            back.setOnMouseClicked((event) -> {
+            regresarQuerellante(event);
+            });
+             cb.setDisable(true);
+        }
+        else
+        {
+            back.setOnMouseClicked((event) -> {
+            regresar(event);
+            });
+        }
     }
 
     
@@ -140,8 +151,46 @@ public class ActualizarCasoJuezController implements Initializable {
         curStage.show();
     }    
     
-    @FXML
-    void regresar(MouseEvent event) {
+     void regresar(MouseEvent event) {
+        Parent loginEmpView = null;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosJuez.fxml"));
+        try {
+            loginEmpView = (AnchorPane) loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Scene logScene = new Scene(loginEmpView);
+
+        Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        curStage.setScene(logScene);
+
+        CasosJuezController controller = loader.<CasosJuezController>getController();
+        controller.mostrarCasos(Integer.parseInt(juezId));
+        
+        curStage.show();
+    }
+
+    void regresarQuerellante(MouseEvent event) {
+
+        Parent loginEmpView = null;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/CasosQuerellante.fxml"));
+        try {
+            loginEmpView = (AnchorPane) loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(CasoFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Scene logScene = new Scene(loginEmpView);
+
+        Stage curStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        curStage.setScene(logScene);
+
+        CasosQuerellanteController controller = loader.<CasosQuerellanteController>getController();
+        controller.mostrarCasos(Integer.parseInt(juezId));
+        controller.setFXML("LoginQuerellante");
+
+        curStage.show();
 
     }
 }
