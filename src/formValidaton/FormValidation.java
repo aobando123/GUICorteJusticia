@@ -80,8 +80,13 @@ public class FormValidation {
         return "";
     }
 
-    public void validateForm(JFXTextField[] arrayFields, Label[] labels) {
-
+    public boolean validPassword(JFXPasswordField con){
+    if (!con.getText().equals("")){
+        con.setUnFocusColor(normal);
+        return true;
+    }
+   con.setUnFocusColor(error);
+    return false;
     }
 
     public boolean validateField(JFXTextField field, Label labels) {

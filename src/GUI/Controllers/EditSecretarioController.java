@@ -7,6 +7,7 @@ package GUI.Controllers;
 
 import Logic.GestorSecretario;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import formValidaton.FormValidation;
@@ -37,9 +38,9 @@ public class EditSecretarioController implements Initializable {
     /**
      * Initializes the controller class.
      */
-        @FXML
+    @FXML
     private Label title;
-        
+
     private int idSecretario;
     @FXML
     private JFXTextField nombre;
@@ -77,8 +78,11 @@ public class EditSecretarioController implements Initializable {
 
     @FXML
     private Label nombreUsu;
-    
-    
+
+    @FXML
+    private JFXPasswordField contra;
+    @FXML
+    private Label lblc;
 
     private GestorSecretario gs = new GestorSecretario();
 
@@ -101,8 +105,8 @@ public class EditSecretarioController implements Initializable {
         });
 
     }
-    
-    public void setCreate(){
+
+    public void setCreate() {
         update.setText("Registrar");
         update.setOnMouseClicked((event) -> {
             try {
@@ -154,17 +158,18 @@ public class EditSecretarioController implements Initializable {
 
         }
     }
-    
-    void crear(MouseEvent mEvent)throws IOException{
-        String[] secretario = new String[6];
-             if (validateForm()) {
-            
+
+    void crear(MouseEvent mEvent) throws IOException {
+        String[] secretario = new String[7];
+        if (validateForm()) {
+
             secretario[0] = nombre.getText();
             secretario[1] = apellido.getText();
             secretario[2] = telefono.getText();
             secretario[3] = cedula.getText();
             secretario[4] = direccion.getText();
             secretario[5] = NUsuario.getText();
+            secretario[6] = contra.getText();
 
             try {
                 gs.create(secretario);
@@ -182,9 +187,17 @@ public class EditSecretarioController implements Initializable {
         FormValidation formquere = new FormValidation();
 
         JFXTextField[] arrayText = {nombre, apellido, telefono, cedula, NUsuario};
+        
         Label[] arrayLabel = {labelNombre, labelApellido, labelTelefono, labelCedula, nombreUsu, labelDireccion};
         int[] arraySonNumFields = {2, 3};
-
+        if (!update.getText().equals("Actualizar")) {
+      if(!formquere.validPassword(contra)){
+           lblc.setText("favor llenar el campo");
+           return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel)&& false;
+           
+           }
+           return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel)&& true;
+        }
         return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel);
     }
 
@@ -198,6 +211,7 @@ public class EditSecretarioController implements Initializable {
         telefono.setText(secre[4]);
         direccion.setText(secre[5]);
         NUsuario.setText(secre[6]);
+        contra.setVisible(false);
 
     }
 }

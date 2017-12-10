@@ -9,6 +9,7 @@ import Logic.GestorJuez;
 import Logic.GestorSala;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import formValidaton.FormValidation;
@@ -83,6 +84,10 @@ public class FormJuezController implements Initializable {
 
     @FXML
     private JFXComboBox<String> salas;
+     @FXML
+    private JFXPasswordField contra;
+    @FXML
+    private Label labelContra;
 
     GestorSala gs = new GestorSala();
     GestorJuez gj = new GestorJuez();
@@ -129,6 +134,7 @@ public class FormJuezController implements Initializable {
         fillForm(idPersona);
         titulo.setText("Actulizar Juez");
         btnAccion.setText("Actualizar");
+        contra.setVisible(false);
         btnAccion.setOnMouseClicked((event) -> {
             try {
                 actuali(event);
@@ -151,7 +157,7 @@ public class FormJuezController implements Initializable {
         });
     }
     void create(MouseEvent event) throws IOException{
-         String[] juez = new String[8];
+         String[] juez = new String[9];
         if (validateForm()) {
             
             juez[0] = nombre.getText();
@@ -162,6 +168,7 @@ public class FormJuezController implements Initializable {
             juez[5] = NUsuario.getText();
             juez[6] = salas.getValue();
             juez[7] = nJuez.getText();
+            juez[8] = contra.getText();
             
 
             try {
@@ -220,7 +227,15 @@ public class FormJuezController implements Initializable {
         Label[] arrayLabel = {labelNombre, labelApellido, labelTelefono, labelCedula, nombreUsu,labelNJuez, labelDireccion};
         int[] arraySonNumFields = {2, 3,5};
 
-        return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel);
-    }
+        if (!btnAccion.getText().equals("Actualizar")) {
+      if(!formquere.validPassword(contra)){
+           labelContra.setText("favor llenar el campo");
+           return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel)&& false;
+           
+           }
+           return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel)&& true;
+        }
+         return formquere.validateForm(arrayText, arraySonNumFields, direccion, arrayLabel);
+      }
 
 }
